@@ -6,7 +6,7 @@ var lengthOfLongestSubstring = function (s) {
   let max = 0;
 
   for (let i = 0, len = s.length; i < len; i++) {
-    let str = s[i];
+    let str = s.charAt(i);
     let index = arr.indexOf(str);
 
     if (index !== -1) {
