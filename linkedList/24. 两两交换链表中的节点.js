@@ -31,7 +31,8 @@ var swapPairs = function(head) {
   if (!head || !head.next) return head;
 
   let nextNode = head.next;
-  let last = swapPairs(nextNode.next);
+  // 两两交换，步长为2
+  let last = swapPairs(head.next.next);
 
   head.next = last;
   nextNode.next = head;
