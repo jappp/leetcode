@@ -29,11 +29,11 @@ var hasCycle = function(head) {
 /**
  * 快慢指针
  * 慢指针每次走一步，快指针每次走两步，若快慢指针指向同一个节点，表示存在回环
+ * 时间复杂度O(n) 空间复杂度O(1)
 */
 
 var hasCycle = function(head) {
-    let slow = head;
-    let fast = head;
+    let slow = fast = head;
 
     while(fast && fast.next) {
         slow = slow.next;
