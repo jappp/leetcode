@@ -20,25 +20,26 @@ function quickSort(nums) {
   // 分区, 将小于基数的放到基数左边，大于基数的放到基数右边, 并返回基数的位置
   function partition(arr, left, right) {
     let pivot = arr[left];
-    let l = left + 1;
+    let l = left;
     let r = right;
-    while(l <= r) {
-      // 若左指针指向的数小于基数，则继续向右查找
-      while(l <= r && arr[l] < pivot) l++;
-      // 若右指针指向的数大于基数，则继续向左查找
-      while(l <= r && arr[r] >= pivot) r--;
-      if (l <= r) {
+    while(l < r) {
+      // 若右指针指向的数大于基数，则继续从右向左查找
+      while(l < r && arr[r] > pivot) r--;
+      // 若左指针指向的数小于基数，则继续从左向右查找
+      while(l < r && arr[l] <= pivot) l++;
+      if (l < r) {
         // 交换
         [arr[l], arr[r]] = [arr[r], arr[l]];
       }
     }
-    // 修改基数位置
+    console.log(l, r);
+    // 交换基点位置和相遇点
     [arr[left], arr[r]] = [arr[r], arr[left]];
     return r;
   }
   // 递归基数左右两边序列
   function recursive(arr, left, right) {
-    if (left >= right)  return;
+    if (left >= right)  return arr;
     let index = partition(arr, left, right);
     recursive(arr, left, index - 1);
     recursive(arr, index + 1, right);

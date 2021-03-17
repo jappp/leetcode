@@ -35,8 +35,8 @@ var reverseList = function(head) {
   // 步骤一 递归下个节点
   let last = reverseList(head.next);
   // 步骤三，反转操作
-  head.next.next = head;
-  head.next = null;
+  head.next.next = head; // 原 head.next 指向head，即是反转
+  head.next = null; // 将原 head 指向head.next的指针断开
 
   return last;
 }

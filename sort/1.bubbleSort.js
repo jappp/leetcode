@@ -37,7 +37,7 @@ function bubbleSort2(arr) {
     }
     console.log(mark);
     console.log(`第${i+1}次循环`, arr);
-    if (mark) return;
+    if (mark) break;
   }
 
   return arr;

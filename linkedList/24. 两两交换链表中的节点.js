@@ -1,6 +1,9 @@
 /**
  * 迭代 
- * 设置虚拟头节点dummy, 真实头结点需要交换，根据虚拟头结点next可以获取头结点
+ * 设置虚拟头结点 dummy，因为真实头结点要换人，设置了 dummy 后，dummy.next 就能找到头结点。
+ * 开启 while 循环，一对结点的交换有三个指针要改变。
+ * 指针推进，准备交换下一对结点。
+ * 最后返回 dummy.next 。
  */
 var swapPairs = function(head) {
   let dummyNode = new ListNode(0);
@@ -35,7 +38,7 @@ var swapPairs = function(head) {
   if (!head || !head.next) return head;
 
   let nextNode = head.next;
-  // 两两交换，步长为2
+  // 第1个节点指向第 3 个节点，并从第3个节点开始递归
   let last = swapPairs(head.next.next);
 
   head.next = last;
